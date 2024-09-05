@@ -1,0 +1,37 @@
+name: 'The name of your action here'
+description: 'Provide a description here'
+author: 'Your name or organization here'
+
+# Define your inputs here.
+inputs:
+  token:
+    description: 'token of the user which should act as the author of the commit.'
+    required: true
+    type: string
+  target-repository:
+    description: 'The repository to commit to. Must be in the format {owner}/{repo}.'
+    required: false
+    type: string
+  target-branch:
+    description: 'The branch to commit to.'
+    required: true
+    type: string
+  commit-message:
+    description: 'The commit message.'
+    required: true
+  create-tag:
+    description: 'Whether to create a tag for the commit.'
+    required: false
+    type: boolean
+  tag-name:
+    description: 'The name of the tag to create.'
+    required: false
+
+# Define your outputs here.
+outputs:
+  sha:
+    description: 'Commit SHA of the commit that was created.'
+
+runs:
+  using: node20
+  main: dist/index.js
